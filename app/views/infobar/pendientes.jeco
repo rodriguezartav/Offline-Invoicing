@@ -1,0 +1,14 @@
+<div class="frame">
+  
+  <h5>Pendientes de Enviar (<%= @items.length %>)</h5>
+  <dl class="nice vertical tabs">
+
+  <% for item in @items: %>
+    <dd>
+    <span class=""><%= item.Referencia %></span>
+    <span  class=""><%= item.Name.capitalize() %></span>
+    </dd>
+  <% end %>
+  </dl>
+
+</div>

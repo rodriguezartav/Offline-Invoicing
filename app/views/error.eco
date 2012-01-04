@@ -1,0 +1,2 @@
+<p><%= error_text %></p>
+<span>x</span>

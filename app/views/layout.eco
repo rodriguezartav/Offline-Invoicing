@@ -1,0 +1,12 @@
+<div id="header" class="row">
+  <div class="logo columns eight">
+    <h1>Pedidos Remotos</h1>
+  </div>
+  <div class="other columns four">
+    <strong class="right">
+      <a class="update button nice">Actualizar</a>
+      <a href="/home/home.jsp" target="_blank" class="button nice">To Salesforce</a>
+      <span style="color: #fff;">V 0.0.2</span>
+    </strong>
+  </div>
+</div>

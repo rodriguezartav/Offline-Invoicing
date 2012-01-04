@@ -1,0 +1,17 @@
+<h2>Actualizando</h2>
+
+<div class="alert-box error">
+</div>
+
+<h4>Ultima Actualizacion: <%= @last_update.to_pretty() %></h4>
+<% if @last_update.to_pretty() == "Primera Vez": %>
+  <p>Cargando por primera vez, puede demorar unos minutos...</p>
+<% end %>
+
+<div class="row">
+  <img class="loader" src="images/ajax_loader.gif"/>
+  <a class="button login nice show_on_error">Login</a>
+</div>
+
+
+

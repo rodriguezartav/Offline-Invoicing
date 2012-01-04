@@ -1,0 +1,18 @@
+<h2>Enviando</h2>
+
+<div class="alert-box error">
+</div>
+
+<h4>Pedido de : <%= @Name or "Contado" %></h4>
+
+
+<div class="row">
+  <img class="loader" src="images/ajax_loader.gif"/>
+</div>
+
+<div class="row">
+  <a class="button nice small show_on_error accept">Ok</a>
+</div>
+
+
+

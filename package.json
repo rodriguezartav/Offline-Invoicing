@@ -1,0 +1,17 @@
+{
+  "name": "Rodco_Remote",
+  "version": "0.0.4",
+  "engines": {
+    "node": "0.4.11"
+  },
+  "dependencies": { 
+    "ace_offline": "~0.0.3",
+    "hem": "latest",
+    "es5-shimify": "~0.0.1",
+    "json2ify": "~0.0.1",
+    "jqueryify": "~0.0.1",
+    "mockjaxify" : "~0.0.1",
+    "decimal" : "latest",
+    "spine": "latest"
+  }
+}

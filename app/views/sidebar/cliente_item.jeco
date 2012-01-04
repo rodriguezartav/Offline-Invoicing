@@ -1,0 +1,28 @@
+<div class="group">
+<div class="row header">
+  <div class="columns four">
+    <span><%= @ruta %></span>
+  </div>
+  <div class="columns eight right hide-on-phones" >
+    <div class="gauge_canvas">
+      <div style="width:<%= @ratio %>%" class="gauge_bar">
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<% for item in @clientes: %>
+  <div data-id="<%= item.id %>" class="row item">
+    <div class="columns ten">
+      <span><%= item.Name.capitalize() %></span>
+    </div>
+    <div class="columns two right hide-on-phones" >
+      <div class="gauge_canvas">
+        <div  style="width:<%= item.Ratio() %>%"  class="gauge_bar">
+        </div>
+      </div>
+    </div>
+  </div> 
+<% end %>
+</div>
+

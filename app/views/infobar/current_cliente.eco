@@ -1,0 +1,27 @@
+<div class="panel">
+  
+  <h5><%= @Name.capitalize() %></h5>
+  <span>Cod: <%= @Codigo %></span>
+  <span>Tel:<%= @Telefono %></span>
+  <hr>
+
+
+  <div class="row">
+
+    <div class="gauge_canvas with_labels columns six">
+       <span class="title">Meta</span>
+       <div style="width:<%= @Ratio() %>%" class="gauge_bar"></div>
+       <span class="label_0"><%= @Venta.toSmallLabel() %></span>
+       <span class="label_1"><%= @Meta.toSmallLabel() %></span>
+    </div>
+
+    <div class="gauge_canvas with_labels columns five right">
+      <span class="title">Credito</span>
+      <div style="width:<%= @Ratio_Credito() %>%" class="gauge_bar"></div>
+      <span class="label_0"><%= @Saldo.toSmallLabel() %></span>
+      <span class="label_1"><%= @Credito.toSmallLabel() %></span>
+    </div>
+
+  </div>
+
+</div>

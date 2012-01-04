@@ -1,0 +1,68 @@
+<% if @Cliente: %>
+  <h4><%= @Name.capitalize() %></h4>
+<% end %>
+
+<% if !@Cliente: %>
+  <h4>Contado</h4>
+  <div class="contado row">
+  <input value="<%= @Identificacion %>" data-name="Identificacion" class="pedido columns two" placeholder="Cedula"/>
+  <input value="<%= @Nombre %>"  data-name="Nombre" class="pedido columns four" placeholder="Nombre"/>
+  <input value="<%= @Email %>"  data-name="Email" class="pedido columns three" placeholder="Email"/>
+  <input value="<%= @Telefono %>"  data-name="Telefono" class="pedido columns two" placeholder="Telefono"/>
+  </div>
+<% end %>
+
+<div class="content">
+  <% if @Items.length>0: %>
+    <table>
+    					<thead>
+    						<tr>
+    							<th>Precio</th>
+    							<th>Producto</th>
+    							<th>Cantidad</th>
+    							<th>Descuento</th>
+    							<th></th>
+    						</tr>
+    					</thead>
+   		<tbody>
+
+    <% for item in @Items: %>
+  			<tr data-id="<%= item.id %>" class="item">
+  				<td><%= item.Precio?.toMoney() %></td>
+  				<td><%= item.Name?.capitalize() %></td>
+  				<td><input class="pedido_item cantidad" data-type="Numeric" data-name="Cantidad" value="<%= item.Cantidad %>"/></td>
+  				<td><input class="pedido_item small integer descuento"  data-type="Numeric" data-name="Descuento" value="<%= item.Descuento %>" /></td>
+  				<td><button class="delete_item">X</button></td>
+  			</tr>
+    <% end %>
+  
+    </tbody>
+    </table>
+      <div class="row total_row">
+        <input data-name="Observacion" value="<%= @Observacion %>" type="text" placeholder="Observacion" class="pedido nice show_when_active columns four" />
+        <input data-name="Transporte" value="<%= @Transporte %>"  type="text" placeholder="Transporte" class="pedido nice show_when_active columns three" />
+        <input  data-name="Fuente" value="<%= @Fuente %>" type="text" placeholder="Fuente" class="pedido nice show_when_active columns two" />
+       
+        <h5 class="total columns two right"><%= @Total %></h5>
+      </div>
+    <% else: %>
+      <h5>-</h5>
+    <% end %>
+  </div>
+  
+  <div class="icon_button_bar">
+    <a class="icon_button close">&#215;</a>
+  </div>
+  
+  <div class="row">
+    <a class="edit button nice small right hide_when_active">&#215; editar</a>
+    <% if @Items.length>0: %>
+    <% if @Cliente: %>
+      <a data-type="credito" class="send right button nice small show_when_active  ">&#215; Credito</a>
+    <% end %>  
+      <a data-type="contado"  class="send right button nice small show_when_active  ">&#215; Contado</a>
+      <a class="archive button nice small show_when_active ">&#215; archivar</a>
+    <% end %>
+  </div>
+</div>
+ 

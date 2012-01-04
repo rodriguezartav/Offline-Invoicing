@@ -1,0 +1,16 @@
+<div class=" panel">
+  <h5><%= @Name.capitalize() %></h5>
+  <span>Cod: <%= @Codigo %></span>
+  <span>Fam:<%= @Familia %></span>
+  <hr>
+  <img height="250px" width="250px" src="#"/>
+  <hr>
+  <div class="gauge_canvas with_labels">
+     <span class="title">Meta</span>
+     <div style="width:<%= @Ratio() %>%" class="gauge_bar"></div>
+     <span class="label_0"><%= @Venta.toSmallLabel() %></span>
+     <span class="label_1"><%= @Meta.toSmallLabel() %></span>
+  </div>
+
+
+</div>

@@ -1,0 +1,7 @@
+<dl class="nice contained tabs mobile">
+  <dd><a class="tab_clientes active">Cliente</a></dd>
+  <dd><a class="tab_productos">Articulo</a></dd>
+</dl>
+
+<ul class="viewport nice tabs-content contained mobile">
+</ul>

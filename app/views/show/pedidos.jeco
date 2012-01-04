@@ -1,0 +1,11 @@
+<div class="item pedido_item">
+
+  <span><%= @Referencia %></span>
+
+  <p><%= @Name.capitalize() %></p>
+
+  <span><%= @Total?.toMoney() %></span>
+
+  <button class="edit">Editar</button>
+  <button class="send">Enviar</button>
+</div>

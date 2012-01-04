@@ -1,0 +1,6 @@
+<div class="search row">
+  <input class="columns ten centered" type="search" placeholder="nombre" results="0" incremental="true" autofocus>
+</div>
+
+
+<div class="list"></div>

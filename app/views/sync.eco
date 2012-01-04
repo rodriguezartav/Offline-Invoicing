@@ -1,0 +1,18 @@
+<header class="edit">
+<h2>Sincronizar</h2>  
+<img id="ajax_loader" src="ajax_loader.gif"/>
+  <a class="cancel">Regresar</a>
+</header>
+
+<div class="error_box">
+  
+</div>
+
+<div class="content">
+  <div class="info">
+    <h4>Ultima Actualizacion:  <%= @last_update %> </h4>
+    <button id="update_now">Actualizar Ahora</button>
+    <button id="reset">Reset Data</button>
+  </div>
+
+</div>

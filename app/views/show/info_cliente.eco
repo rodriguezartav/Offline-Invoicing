@@ -1,0 +1,19 @@
+<div class="Name">
+  <table>
+    <tr>
+    <td><%= @Codigo %></td>
+      <td><%= @Name %></td>
+      <td>Tel: <%= @Telefono %></td>
+    </tr>
+    </table>
+    
+    <table>
+    <tr>
+    <td>Credito: <%= @Credito.toMoney(0 , "." , ",") %></td>
+    <td>Saldo: <%= @Saldo.toMoney(0 , "." , ",") %></td>
+
+      <td>Meta: <%= @Meta.toMoney(0 , "." , ",") %></td>
+      <td>Ventas: <%= @Venta.toMoney(0 , "." , ",") %></td>
+    </tr>  
+  </table>
+</div>

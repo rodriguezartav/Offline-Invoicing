@@ -1,0 +1,7 @@
+<div class="item">
+
+  <p><%= @Producto.capitalize() %></p>
+
+  <span><%= parseInt(@Total).toMoney(0,'.',',') %></span>
+
+</div>

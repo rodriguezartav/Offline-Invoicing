@@ -1,0 +1,23 @@
+<header class="edit">
+  <h2><%= @Name %></h2>
+  <a class="save">Guardar</a>
+</header>
+
+<div class="content">
+  <form>
+   <label>
+     <span>Referencia</span>
+     <input data-required="true" value="<%= @Referencia %>" data-name="Referencia"/>
+   </label>
+  
+   <label>
+     <span>Transporte</span>
+     <input value="<%= @Transporte %>" data-name="Transporte"/>
+   </label>
+
+  <label>
+     <span>Observaciones</span>
+     <textarea data-name="Observacion"><%= @Observacion %></textarea>
+  </label>
+     
+</div>

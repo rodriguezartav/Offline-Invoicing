@@ -1,0 +1,26 @@
+
+<h2>Credenciales de Ingreso</h2>
+
+<div class="alert-box error">
+</div>
+
+<form class="nice">
+    <label>Email </label>
+      <input class="input-text" id="txt_email" autocomplete name="email" type="email" value="<%= @email %>"/>
+   
+
+    <label>Token</label>
+      <input class="input-text"  type="text" id="txt_token  value="<%= @token %>""/>
+   
+
+    <label>Password</label>
+      <input class="input-text"  type="password" id="txt_password"/>
+
+</form>
+
+  <div class="row">
+    <a class="nice button login">Ingresar</a>
+    <img class="loader" style="display:none" src="images/ajax_loader.gif"/>
+  </div>
+
+  <a class="close-reveal-modal">&#215;</a>

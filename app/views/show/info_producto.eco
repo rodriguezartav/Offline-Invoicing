@@ -1,0 +1,12 @@
+<div class="Name">
+    <table>
+      <tr>
+        <td><%= @Name %></td>
+        <td>Tel: <%= @Codigo %></td>
+      </tr>
+      <tr>
+        <td>Meta: <%= @Meta %></td>
+        <td>Ventas: <%= @Venta %></td>
+      </tr>  
+    </table>
+  </div>

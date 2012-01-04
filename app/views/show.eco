@@ -1,0 +1,17 @@
+<header class="edit">
+  <h2>Pedidos en Espera</h2>
+  <img id="ajax_loader" src="ajax_loader.gif"/>
+  <a class="sync">Sincronizar</a>
+  <a class="new">Nuevo</a>
+</header>
+
+
+<div class="error_box">
+  
+</div>
+
+<div class="content no_active">
+  <div class="info rendable"></div>
+  <div class="list pedidos rendable"></div>
+  <div class="list items rendable"></div>
+</div>

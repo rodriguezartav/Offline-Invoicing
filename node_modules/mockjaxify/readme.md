@@ -1,0 +1,1 @@
+A NPM wrapper for a Mockjax Mocking Lib
