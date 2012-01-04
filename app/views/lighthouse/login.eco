@@ -10,7 +10,7 @@
    
 
     <label>Token</label>
-      <input class="input-text"  type="text" id="txt_token  value="<%= @token %>""/>
+      <input class="input-text"  type="text" id="txt_token"  value="<%= @token %>"/>
    
 
     <label>Password</label>

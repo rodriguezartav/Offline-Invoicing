@@ -10,7 +10,7 @@ class Error extends Spine.Model
     if errors_list.length > 0
       errors = JSON.stringify {errors: errors_list}
       $.ajax
-        url        :  'http://rodco-api.heroku.com/errors'
+        url        :  Spine.server + '/errors'
         type       :  "POST"
         data       :  errors
         success    :  @on_send_success

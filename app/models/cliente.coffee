@@ -38,7 +38,7 @@ class Cliente extends Spine.Model
     query = "Select Id , Name, SubRuta__c , DiasCredito__c , Meta__c, Ruta__c , Ventas__c , Vendedor__r.VendedorId__c , CodigoExterno__c , Saldo__c, CreditoAsignado__c  , Activo__c , Telefono__c from Cliente__c where LastModifiedDate > " + last
     data = user.to_auth { query: query }
     $.ajax
-      url:"http://127.0.0.1:9393/query"
+      url: Spine.server + "/query"
       xhrFields: {withCredentials: true}
       type: "POST"
       data: data

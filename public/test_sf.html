@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+  <meta charset=utf-8>
+  <title>Rodco S.A.</title>
+  <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
+  <script src="/application.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    var jQuery  = require("jqueryify");
+    var exports = this;
+    jQuery(function(){
+      var App = require("index");
+      exports.app = new App({ el: $(".app_body"), test: true });      
+    });
+  </script>  
+</head>
+<body>
+
+  <div class="app_body">
+    
+  </div>
+
+</body>
+</html>

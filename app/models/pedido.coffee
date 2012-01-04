@@ -50,7 +50,7 @@ class Pedido extends Spine.Model
   send_to_server: (user) =>
     data = user.to_auth { type: "Oportunidad__c" , items: JSON.stringify( @format_for_server() )  }
     $.ajax
-      url        :  "http://127.0.0.1:9393/save"
+      url        :  Spine.server + "/save"
       type       :  "POST"
       data       :  data
       success    :  @on_send_success

@@ -49,7 +49,7 @@ class Producto extends Spine.Model
     query = "Select Id,Name,CodigoExterno__c,Precio_Distribuidor__c, InventarioMinimo__c , Meta__c, Venta__c , Familia__c,Impuesto__c,Costo__c ,Activo__c,InventarioActual__c, DescuentoMaximo__c from Producto__c where Precio_Distribuidor__c > 0 and LastModifiedDate > " + user.last_update.to_salesforce()
     data = user.to_auth { query: query }
     $.ajax
-      url:"http://127.0.0.1:9393/query"
+      url: Spine.server + "/query"
       type: "POST"
       data: data
       success: @on_success

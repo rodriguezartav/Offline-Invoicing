@@ -21,6 +21,9 @@ class App extends Spine.Controller
 
   constructor: ->
     super
+    
+    Spine.server = if @test then "http://127.0.0.1:9393" else "http://rodco-api2.heroku.com"
+    
     @html require('views/layout')()
   
     @pedidos = new Pedidos
@@ -30,6 +33,8 @@ class App extends Spine.Controller
     Spine.Route.setup()
 
     User.retrieve()
+    
+      
     if @email
       User.current.session = { instance_url: @instance_url , token: @token }
       User.current.email = @email

@@ -6,7 +6,7 @@ class User extends Spine.Model
   @extend Spine.Model.Local
 
   to_credentials: ->
-    { username: @email, password: @token + @password  }
+    { username: @email, password: @password + @token  }
   
   to_auth: (params) ->
     params.instance_url= @session.instance_url
@@ -25,7 +25,7 @@ class User extends Spine.Model
     @current.updateAttributes {email: email , token: token or "" , password: password , session: null }
     @current.save()
     $.ajax
-      url:"http://127.0.0.1:9393/login"
+      url: Spine.server + "/login"
       type: "POST"
       data: @current.to_credentials()
       success: @on_login_success

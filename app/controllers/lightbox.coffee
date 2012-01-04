@@ -19,7 +19,6 @@ class Block extends Spine.Controller
 
   render: (pedido,callback) =>
     @html require('views/lighthouse/block')()
-    @delegateEvents()
   
   on_accept: =>
     if User.current.is_visualforce 
@@ -50,7 +49,6 @@ class Send extends Spine.Controller
 
   render: (pedido,callback) =>
     @html require('views/lighthouse/send')(pedido)
-    @delegateEvents()
     @do_send(pedido,callback)
   
   do_send: ( pedido , callback ) =>
@@ -147,6 +145,9 @@ class Sync extends Spine.Controller
     @log "Producto Update Complete"
     Cliente.unbind "ajax_complete" , @update_producto
     Producto.unbind "ajax_complete" , @sync_complete
+    Cliente.unbind "ajax_error" , @on_error
+    Producto.unbind "ajax_error" , @on_error
+    
     Producto.trigger "refresh"
     Cliente.trigger "refresh"
     User.current.last_update = new Date()
@@ -157,6 +158,11 @@ class Sync extends Spine.Controller
       Spine.trigger "hide_lightbox"
 
   on_error: (error_obj) =>
+    Cliente.unbind "ajax_error" , @on_error
+    Producto.unbind "ajax_error" , @on_error
+    Cliente.unbind "ajax_complete" , @update_producto
+    Producto.unbind "ajax_complete" , @sync_complete
+
     User.current.errors.push error_obj
     User.current.save()
     @loader.hide()
@@ -169,7 +175,7 @@ class Login extends Spine.Controller
   elements:
     "#txt_email" : "email"
     "#txt_password" : "txt_password"
-    "#txt_token" : "token"
+    "#txt_token" : "txt_token"
     ".alert-box" : "alert_box"
     ".login" : "login"
     ".loader" : "loader"
@@ -184,24 +190,31 @@ class Login extends Spine.Controller
 
   render: =>
     @html require('views/lighthouse/login')(User.current)
-    @delegateEvents()
-   
+    
   login: =>
     @login.hide()
     @loader.show()
     
-    User.bind "login_complete" , =>
-      @login.show()
-      @loader.hide()
-      Spine.trigger "show_lightbox" , "sync"
+    User.bind "login_complete" , @on_login_complete
 
-    User.bind "login_error" , (response) =>
-      @login.show()
-      @loader.hide()
-      @alert_box.html response.error
-      @el.addClass "error"
+    User.bind "login_error" , @on_login_error
+      
+    User.login  @email.val(),  @txt_token.val() , @txt_password.val()
 
-    User.login  @email.val(),  @token.val() , @txt_password.val()
+  on_login_complete: =>
+    User.unbind "login_complete" , @on_login_complete
+    User.unbind "login_error" , @on_login_error
+    @login.show()
+    @loader.hide()
+    Spine.trigger "show_lightbox" , "sync"
+    
+  on_login_error: (response) =>
+    User.unbind "login_complete" , @on_login_complete
+    User.unbind "login_error" , @on_login_error
+    @login.show()
+    @loader.hide()
+    @alert_box.html response.error
+    @el.addClass "error"
 
   cancel:->
     User.current.session = null
@@ -226,7 +239,6 @@ class Lightbox extends Spine.Controller
         @html @current
 
   hide: =>
-    @current?.release()
     @current = null
     @el.empty()
     @el.hide()
