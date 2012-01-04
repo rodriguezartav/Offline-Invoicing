@@ -22,7 +22,7 @@ class Block extends Spine.Controller
     @delegateEvents()
   
   on_accept: =>
-    @log User.curret
+    @log User.current
     if User.current.is_visualforce 
       Spine.trigger "show_lightbox" , "sync"
     else if User.current.session 
