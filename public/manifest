@@ -1,10 +1,10 @@
 CACHE MANIFEST
-# v 0.3.6
+# v 0.3.7
 
 CACHE:
 /application.js
 /application.css
-/ajax_loader.gif
+/images/ajax_loader.gif
 
 NETWORK:
 http://rodco-api.heroku.com//save_oportunidades
