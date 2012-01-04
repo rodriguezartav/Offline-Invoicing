@@ -33,8 +33,8 @@ class App extends Spine.Controller
     if @email
       User.current.session = { instance_url: @instance_url , token: @token }
       User.current.email = @email
-      User.last_login = new Date()
-      User.is_visualforce = true
+      User.current.last_login = new Date()
+      User.current.is_visualforce = true
       User.current.save()
       Spine.trigger("show_lightbox","sync")
     else if User.current.last_login.minutes_from_now() > 115
