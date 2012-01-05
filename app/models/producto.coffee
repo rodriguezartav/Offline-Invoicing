@@ -1,7 +1,7 @@
 Spine = require('spine')
 
 class Producto extends Spine.Model
-  @configure 'Producto', 'Name', 'Codigo' , 'Cantidad' , 'Minimo' ,  'Precio' , 'Descuento' ,'Familia', 'Impuesto' , "Costo" , "Activo" , "Meta" , "Venta"
+  @configure 'Producto', 'Name', 'Codigo' , 'Cantidad' , 'Minimo' ,  'Precio' , 'Descuento' ,'Familia', 'Impuesto'  , "Activo" , "Meta" , "Venta"
   
   @extend Spine.Model.Local
   
@@ -46,7 +46,7 @@ class Producto extends Spine.Model
 
   
   @fetch_from_sf: (user) ->
-    query = "Select Id,Name,CodigoExterno__c,Precio_Distribuidor__c, InventarioMinimo__c , Meta__c, Venta__c , Familia__c,Impuesto__c,Costo__c ,Activo__c,InventarioActual__c, DescuentoMaximo__c from Producto__c where Precio_Distribuidor__c > 0 and LastModifiedDate > " + user.last_update.to_salesforce()
+    query = "Select Id,Name,CodigoExterno__c,Precio_Distribuidor__c, InventarioMinimo__c , Meta__c, Venta__c , Familia__c,Impuesto__c ,Activo__c,InventarioActual__c, DescuentoMaximo__c from Producto__c where Precio_Distribuidor__c > 0 and LastModifiedDate > " + user.last_update.to_salesforce()
     data = user.to_auth { query: query }
     $.ajax
       url: Spine.server + "/query"
@@ -107,7 +107,6 @@ class Producto extends Spine.Model
     producto.Familia = obj.Familia__c || "N/D"
     producto.Meta = obj.Meta__c || 0.00
     producto.Venta = obj.Venta__c || 0.00
-    producto.Costo = obj.Costo__c || 0.00
     producto.Activo = obj.Activo__c || true
     producto.Minimo = obj.InventarioMinimo__c || 0
     Producto.create producto
