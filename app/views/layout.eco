@@ -6,7 +6,7 @@
     <strong class="right">
       <a class="update button nice">Actualizar</a>
       <a href="/home/home.jsp" target="_blank" class="button nice">To Salesforce</a>
-      <span style="color: #fff;">V 0.0.2</span>
+      <span style="color: #fff;">V 0.0.3</span>
     </strong>
   </div>
 </div>
