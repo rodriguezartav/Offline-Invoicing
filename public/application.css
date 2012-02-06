@@ -1848,6 +1848,10 @@ html {
   overflow: hidden;
   -webkit-user-select: none;
 }
+body .app_body,
+html .app_body {
+  height: 100%;
+}
 body .pedidos,
 html .pedidos {
   height: 100%;
