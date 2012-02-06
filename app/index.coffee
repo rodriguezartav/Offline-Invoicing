@@ -34,6 +34,7 @@ class App extends Spine.Controller
 
     User.retrieve()
     
+    Spine.source = "Remote"
       
     if @email
       User.current.session = { instance_url: @instance_url , token: @token }
@@ -41,6 +42,7 @@ class App extends Spine.Controller
       User.current.last_login = new Date()
       User.current.is_visualforce = true
       User.current.save()
+      Spine.source = "Salesforce"
       Spine.trigger("show_lightbox","sync")
     else if User.current.last_login.minutes_from_now() > 115
       Spine.trigger("show_lightbox","login")

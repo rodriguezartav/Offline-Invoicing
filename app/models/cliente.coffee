@@ -22,7 +22,7 @@ class Cliente extends Spine.Model
     r*100
 
   @map_by_ruta: (clientes) ->
-    rutas = (cliente.Ruta() for cliente in clientes when cliente.SubRuta > 0 ).unique()
+    rutas = (cliente.Ruta() for cliente in clientes).unique()# when cliente.SubRuta > 0).unique()
     groups  = []
     for ruta in rutas
       ratio = 0
@@ -115,7 +115,6 @@ class Cliente extends Spine.Model
     for word in words
       str += word
       str += "|"
-
     str = str.slice(0, -1)
 
   @filter: (query) =>
@@ -123,6 +122,11 @@ class Cliente extends Spine.Model
     query = query.toLowerCase()
     myRegExp =new RegExp( @queryToRegex(query),'gi')
     @select (item) =>
+      #return false if item.Activo == false
+      #name = item.Name.toLowerCase()
+      #console.log name + " " + item.SubRuta if(name.indexOf(query) > -1)
+      #return true if(name.indexOf(query) > -1)
+      
       return false if item.Activo == false
       item.Name.search(myRegExp) > -1 or String(item.Codigo).indexOf(query) == 0
         

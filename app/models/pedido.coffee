@@ -38,7 +38,7 @@ class Pedido extends Spine.Model
     Pedido.create 
       Name        : cliente.Name
       Cliente     : cliente.id if cliente.id
-      Fuente      : "Agente"
+      Fuente      : Spine.source
       Plaza       : cliente.DiasCredito
       Total       : 0
       Estado      : "Pendiente"
